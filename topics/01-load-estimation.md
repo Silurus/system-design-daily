@@ -81,34 +81,6 @@ flowchart LR
 
 **Twitter (публичные доклады, около 2013 года):** ~150 млн активных пользователей, ~5k твитов/с в среднем, ~300k QPS на чтение ленты. Чтение к записи примерно 60:1, поэтому выбрали fan-out on write: при публикации твит раскладывается по готовым лентам подписчиков в Redis, чтение становится дешёвым. Твиты знаменитостей с миллионами подписчиков не раскладывают, а подмешивают при чтении. Архитектура следует прямо из цифр.
 
-## Код на C#
-
-```csharp
-public static class LoadEstimation
-{
-    const double SecondsPerDay = 86400;
-
-    public static double AvgQps(double dau, double actionsPerUser) =>
-        dau * actionsPerUser / SecondsPerDay;
-
-    public static (double writes, double reads) Split(double qps, double readsPerWrite) =>
-        (qps / (readsPerWrite + 1), qps * readsPerWrite / (readsPerWrite + 1));
-
-    public static double StorageBytes(double itemsPerDay, double bytesPerItem,
-                                      double days, double replication) =>
-        itemsPerDay * bytesPerItem * days * replication;
-
-    public static double EgressBytesPerSec(double viewsPerDay, double bytesPerView) =>
-        viewsPerDay * bytesPerView / SecondsPerDay;
-
-    public static double AppServerQps(int cores, double cpuMsPerRequest, double targetLoad = 0.6) =>
-        cores * 1000 / cpuMsPerRequest * targetLoad;
-
-    // Формула Литтла: сколько запросов одновременно «в полёте»
-    public static double InFlight(double qps, double latencySec) => qps * latencySec;
-}
-```
-
 ## Разбор вопросов (мои ответы и поправки)
 
 **1. 50 млн DAU × 20 запросов, пик ×3. Хватит ли одного сервера и одной БД?**
