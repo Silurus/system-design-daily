@@ -27,7 +27,7 @@
 - [ ] 20. Наблюдаемость: метрики, логи, трейсинг, SLI/SLO
 
 ## Блок 3. Кейсы (как на собеседовании)
-- [ ] 21. URL shortener
+- [ ] 21. URL shortener · материалы: [шпаргалка Base62](topics/21-url-shortener/base62_cheatsheet.md)
 - [ ] 22. Rate limiter как сервис
 - [ ] 23. Лента новостей (fan-out on write / on read)
 - [ ] 24. Чат-мессенджер
