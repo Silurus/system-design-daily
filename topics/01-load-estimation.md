@@ -86,7 +86,7 @@ flowchart LR
 ```csharp
 public static class LoadEstimation
 {
-    const double SecondsPerDay = 86_400;
+    const double SecondsPerDay = 86400;
 
     public static double AvgQps(double dau, double actionsPerUser) =>
         dau * actionsPerUser / SecondsPerDay;
