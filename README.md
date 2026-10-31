@@ -20,4 +20,4 @@
 См. [CURRICULUM.md](CURRICULUM.md).
 
 ## Конспекты
-<!-- список пополняется после каждой темы -->
+- [01. Оценка нагрузки (back-of-the-envelope)](topics/01-load-estimation.md) — 2026-10-31
