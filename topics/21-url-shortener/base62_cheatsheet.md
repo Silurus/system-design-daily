@@ -7,30 +7,39 @@
 
 ---
 
-## 💻 Функции на Python
+## 💻 Функции на C#
 
-```python
-import string
+```csharp
+public static class Base62
+{
+    private const string Alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private const int Base = 62;
 
-ALPHABET = string.digits + string.ascii_uppercase + string.ascii_lowercase
-BASE = 62
+    /// <summary>Прямой перевод: Число (ID) → Короткий код</summary>
+    public static string Encode(long num)
+    {
+        if (num == 0) return Alphabet[0].ToString();
+        
+        var result = new System.Text.StringBuilder();
+        while (num > 0)
+        {
+            result.Insert(0, Alphabet[(int)(num % Base)]);
+            num /= Base;
+        }
+        return result.ToString();
+    }
 
-def encode_base62(num: int) -> str:
-    """Прямой перевод: Число (ID) -> Короткий код"""
-    if num == 0:
-        return ALPHABET[0]
-    arr = []
-    while num:
-        num, rem = divmod(num, BASE)
-        arr.append(ALPHABET[rem])
-    return ''.join(reversed(arr))
-
-def decode_base62(string_code: str) -> int:
-    """Обратный перевод: Короткий код -> Число (ID)"""
-    num = 0
-    for char in string_code:
-        num = num * BASE + ALPHABET.index(char)
-    return num
+    /// <summary>Обратный перевод: Короткий код → Число (ID)</summary>
+    public static long Decode(string code)
+    {
+        long num = 0;
+        foreach (char c in code)
+        {
+            num = num * Base + Alphabet.IndexOf(c);
+        }
+        return num;
+    }
+}
 ```
 
 ---
@@ -39,12 +48,9 @@ def decode_base62(string_code: str) -> int:
 
 ### 1. Прямой перевод (Деление с остатком)
 Переводим `ID = 125191` в Base62:
-* $125191 / 62 = 2019$, остаток **13** ($
-→$ `D`)
-* $2019 / 62 = 32$, остаток **35** ($
-→$ `Z`)
-* $32 / 62 = 0$, остаток **32** ($
-→$ `W`)
+* `125191 / 62 = 2019`, остаток **13** (`D`)
+* `2019 / 62 = 32`, остаток **35** (`Z`)
+* `32 / 62 = 0`, остаток **32** (`W`)
 
 Собираем остатки снизу вверх: **`WZD`**.
 
@@ -54,14 +60,11 @@ def decode_base62(string_code: str) -> int:
 **Пошаговый процесс в цикле (для "WZD"):**
 1. **Старт:** `num = 0`
 2. **Символ 'W'** (значение 32):  
-   `num = 0 * 62 + 32` $
-→$ **32**
+   `num = 0 * 62 + 32` = **32**
 3. **Символ 'Z'** (значение 35):  
-   `num = 32 * 62 + 35` $
-→$ **2019**
+   `num = 32 * 62 + 35` = **2019**
 4. **Символ 'D'** (значение 13):  
-   `num = 2019 * 62 + 13` $
-→$ **125191**
+   `num = 2019 * 62 + 13` = **125191**
 
 ### 🧠 Почему это работает?
 Если раскрыть все скобки финального выражения, мы получим классическую формулу разложения по степеням:
