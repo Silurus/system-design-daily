@@ -8,7 +8,7 @@
 - [x] 02. [Масштабирование](topics/02-scaling.md): вертикальное и горизонтальное, stateless-сервисы — 2026-11-10
 - [x] 03. [Балансировка нагрузки](topics/03-load-balancing.md): L4 и L7, алгоритмы, health checks — 2026-11-10
 - [x] 04. [Кэширование](topics/04-caching.md): cache-aside, write-through, write-back, инвалидация, cache stampede — 2026-11-12
-- [ ] 05. CDN и кэш на краю
+- [x] 05. [CDN и кэш на краю](topics/05-cdn.md) — 2026-11-13
 - [ ] 06. Базы данных: SQL и NoSQL, когда что выбирать
 - [ ] 07. Индексы: B-tree, LSM-tree, компромиссы чтения и записи
 - [ ] 08. Репликация: leader-follower, multi-leader, leaderless, лаг репликации
