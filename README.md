@@ -35,6 +35,11 @@
 - **[Dropbox](examples/dropbox.md)** — файловая синхронизация: content-defined chunking, дедупликация блоков по SHA-256, конфликтные копии
 - **[Uber](examples/uber.md)** — такси: геоиндекс в Redis (2.5 млн writes/сек), матчинг с атомарным `SETNX`, батч-матчинг в пик
 - **[Доставка еды](examples/food-delivery.md)** — DoorDash-подобный сервис: синхронизация трёх таймлайнов, FSM заказа с деньгами, batching курьеров
+- **[URL Shortener](examples/url-shortener.md)** — Bit.ly: KGS с base62-кодами, read:write 1000:1, 302 vs 301, асинхронная аналитика
+- **[Rate Limiter](examples/rate-limiter.md)** — token bucket на Lua-скрипте, сравнение 5 алгоритмов, fail-open, горячие ключи
+- **[Distributed Cache](examples/distributed-cache.md)** — Redis-подобный: 16384 hash slots + gossip, приближённый LRU, решардинг без простоя
+- **[Job Scheduler](examples/job-scheduler.md)** — cron в масштабе 1 млн/мин: time-бакеты, at-least-once + идемпотентность, DLQ
+- **[Payment System](examples/payment-system.md)** — double-entry ledger, идемпотентность на всех уровнях, Outbox, ежедневная сверка
 
 ## Конспекты
 - [01. Оценка нагрузки (back-of-the-envelope)](topics/01-load-estimation.md) — 2026-10-31
