@@ -25,5 +25,8 @@
 ## Программа
 См. [CURRICULUM.md](CURRICULUM.md).
 
+## Примеры задач проектирования
+- **[Можнограмм](examples/instagram-mozhno.md)** — проектирование аналога Instagram с выяснением требований, оценкой нагрузки, компонентами системы и разбором trade-offs
+
 ## Конспекты
 - [01. Оценка нагрузки (back-of-the-envelope)](topics/01-load-estimation.md) — 2026-10-31
