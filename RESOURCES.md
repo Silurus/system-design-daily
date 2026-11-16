@@ -176,7 +176,7 @@
 
 Полные разборы с требованиями, API, диаграммами, trade-offs и ожиданиями по уровням (Middle/Senior/Staff+):
 
-- **Можнограм (Instagram)** — fan-out on write, multipart upload, CDN
+- **Instagram** — fan-out on write, multipart upload, CDN
 - **Bit.ly** — URL shortener, base62 encoding, collision handling
 - **Rate Limiter** — sliding window, token bucket, distributed counters
 - **LeetCode** — code execution, sandboxing, real-time judging

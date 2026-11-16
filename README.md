@@ -29,7 +29,7 @@
 - **[RESOURCES.md](RESOURCES.md)** — структура интервью, паттерны, важные цифры 2026, ссылки на NowInterview и другие источники
 
 ## Примеры задач проектирования
-- **[Можнограмм](examples/instagram-mozhno.md)** — проектирование аналога Instagram с выяснением требований, оценкой нагрузки, компонентами системы и разбором trade-offs
+- **[Instagram](examples/instagram.md)** — фотосоцсеть: multipart upload через presigned URL, гибридный fan-out (Redis + on-demand для VIP), полиглот-персистентность
 
 ## Конспекты
 - [01. Оценка нагрузки (back-of-the-envelope)](topics/01-load-estimation.md) — 2026-10-31
