@@ -29,7 +29,12 @@
 - **[RESOURCES.md](RESOURCES.md)** — структура интервью, паттерны, важные цифры 2026, ссылки на NowInterview и другие источники
 
 ## Примеры задач проектирования
-- **[Instagram](examples/instagram.md)** — фотосоцсеть: multipart upload через presigned URL, гибридный fan-out (Redis + on-demand для VIP), полиглот-персистентность
+- **[Instagram](examples/instagram.md)** — фотосоцсеть: multipart upload через presigned URL, гибридный fan-out (Redis + on-demand для VIP), сравнение PostgreSQL vs DynamoDB
+- **[Telegram](examples/telegram.md)** — мессенджер: WebSocket-гейтвеи, Session Registry, порядок сообщений через `seq` + Kafka-партиции, Cassandra для 11 ПБ/год
+- **[YouTube](examples/youtube.md)** — видеохостинг: HLS-сегменты, транскодирование на GPU/spot, multi-CDN на 83 Тбит/с
+- **[Dropbox](examples/dropbox.md)** — файловая синхронизация: content-defined chunking, дедупликация блоков по SHA-256, конфликтные копии
+- **[Uber](examples/uber.md)** — такси: геоиндекс в Redis (2.5 млн writes/сек), матчинг с атомарным `SETNX`, батч-матчинг в пик
+- **[Доставка еды](examples/food-delivery.md)** — DoorDash-подобный сервис: синхронизация трёх таймлайнов, FSM заказа с деньгами, batching курьеров
 
 ## Конспекты
 - [01. Оценка нагрузки (back-of-the-envelope)](topics/01-load-estimation.md) — 2026-10-31
